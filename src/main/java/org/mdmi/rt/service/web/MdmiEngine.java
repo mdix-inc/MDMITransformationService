@@ -369,6 +369,11 @@ public class MdmiEngine {
 		loadPostProcessors(Mdmi.INSTANCE());
 		loadsourcesemanticprocessors(Mdmi.INSTANCE());
 		loadTargetSemanticProcessors(Mdmi.INSTANCE());
+
+		FHIRTerminologyTransform terminologyService = new FHIRTerminologyTransform();
+
+		terminologyService.healthCheck();
+
 		return Mdmi.INSTANCE().getResolver().getEngineConfigurations();
 	}
 

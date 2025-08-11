@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.mdmi.transformation</groupId>
 	<artifactId>org.mdmi.transformation.service</artifactId>
-	<version>4.1.0-SNAPSHOT</version>
+	<version>4.1.5</version>
 	<packaging>jar</packaging>
 	<name>MDMI Transformation Service</name>
 	<description>MDMI Transformation Service</description>
 	<properties>
-		<mdmi.runtime.version>4.0.0-SNAPSHOT</mdmi.runtime.version>
+		<mdmi.runtime.version>4.1.0-SNAPSHOT</mdmi.runtime.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>21</java.version>
 		<maven.compiler.source>21</maven.compiler.source>
@@ -20,7 +20,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.0</version>
+		<version>3.4.3</version>
 	</parent>
 
 	<repositories>
@@ -39,7 +39,86 @@
 		</repository>
 	</repositories>
 
+	<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+             <version>1.5.18</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+
 	<dependencies>
+
+<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-core</artifactId>
+
+</dependency>
+
+<dependency>
+  <groupId>ch.qos.logback</groupId>
+  <artifactId>logback-classic</artifactId>
+
+</dependency>
+<dependency>
+  <groupId>org.codehaus.janino</groupId>
+  <artifactId>janino</artifactId>
+
+</dependency>
+
+
+
+<dependency>
+  <groupId>org.codehaus.janino</groupId>
+  <artifactId>commons-compiler</artifactId>
+
+</dependency>
+
+<!--
+<dependency>
+    <groupId>org.smooks.cartridges.edi</groupId>
+    <artifactId>smooks-edi-cartridge</artifactId>
+    <version>2.0.1</version>
+</dependency>
+-->
+
+
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-logging</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.httpcomponents.client5</groupId>
+  <artifactId>httpclient5</artifactId>
+
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+
+    <scope>test</scope>
+</dependency>
+
+
+
 		<dependency>
 			<groupId>jakarta.ws.rs</groupId>
 			<artifactId>jakarta.ws.rs-api</artifactId>
@@ -132,30 +211,32 @@
 			<artifactId>org.mdmi.processors</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
-			<artifactId>org.mdmi.processors.fhir</artifactId>
-			<version>4.0.0-SNAPSHOT</version>
+	<artifactId>org.mdmi.processors.fhir</artifactId>
+	<version>4.1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.apex</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
+<!--		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.hl7v2</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.cda</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>4.1.0-SNAPSHOT</version>
 		</dependency>
-		<dependency>
+ 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.edi</artifactId>
-			<version>4.0.0-SNAPSHOT</version>
+			<version>4.1.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -179,6 +260,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<skipTests>${skipTests}</skipTests>
+					<systemPropertyVariables>
+						<javax.xml.stream.XMLInputFactory>com.sun.xml.internal.stream.XMLInputFactoryImpl</javax.xml.stream.XMLInputFactory>
+					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 			<plugin>
