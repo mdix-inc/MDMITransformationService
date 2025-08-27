@@ -399,7 +399,7 @@ public class MdmiEngine {
 		getMapProperties(target);
 
 		String result = RuntimeService.runTransformation(
-			source, uploadedInputStream.getBytes(), target, null, mapProperties.get(source), mapProperties.get(target),
+			source, uploadedInputStream.getBytes(), target, mapProperties.get(source), mapProperties.get(target),
 			mapValues.get(source), mapValues.get(target));
 		return result;
 	}
@@ -415,13 +415,10 @@ public class MdmiEngine {
 		loadPostProcessors(Mdmi.INSTANCE());
 		loadsourcesemanticprocessors(Mdmi.INSTANCE());
 		loadTargetSemanticProcessors(Mdmi.INSTANCE());
-		// MdmiUow.setSerializeSemanticModel(false);
-		// Mdmi.INSTANCE().getSourceSemanticModelProcessors().addSourceSemanticProcessor(new ProcessRelationships());
 		getMapProperties(source);
 		getMapProperties(target);
-
 		String result = RuntimeService.runTransformation(
-			source, message.getBytes(), target, null, mapProperties.get(source), mapProperties.get(target),
+			source, message.getBytes(), target, mapProperties.get(source), mapProperties.get(target),
 			mapValues.get(source), mapValues.get(target));
 		return result;
 	}
