@@ -113,9 +113,14 @@
 <dependency>
     <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter</artifactId>
-
     <scope>test</scope>
-</dependency>
+  </dependency>
+
+  <dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-suite</artifactId>
+    <scope>test</scope>
+  </dependency>
 
 
 
@@ -212,28 +217,37 @@
 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 	<artifactId>org.mdmi.processors.fhir</artifactId>
-	<version>4.1.0-SNAPSHOT</version>
+	<version>4.2.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.apex</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-<!--		<dependency>
+ 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.hl7v2</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency> -->
+		</dependency>
 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.cda</artifactId>
 			<version>4.1.0-SNAPSHOT</version>
 		</dependency>
- 		<dependency>
+<!----> 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.edi</artifactId>
-			<version>4.1.0-SNAPSHOT</version>
+			<version>4.2.2-SNAPSHOT</version>
 		</dependency>
+
+
+		<dependency>
+    <groupId>org.antlr</groupId>
+    <artifactId>antlr4-runtime</artifactId>
+    <version>4.13.2</version>
+</dependency>
+
+
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

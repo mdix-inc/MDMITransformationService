@@ -153,6 +153,8 @@ public class MdmiEngine {
 
 			for (String mapsFolder : Stream.of(mapsFolders.split(",", -1)).collect(Collectors.toList())) {
 
+				logger.info("processing mapsFolders " + mapsFolder);
+
 				Set<Path> folders = Files.find(
 					Paths.get(mapsFolder), Integer.MAX_VALUE, (filePath, fileAttr) -> fileAttr.isDirectory()).collect(
 						Collectors.toSet());
@@ -170,13 +172,15 @@ public class MdmiEngine {
 					}
 
 					Path datatypemapsPath = Paths.get(folder.toString() + "/datatypemaps");
+					logger.info("processing datatypemapsPath " + datatypemapsPath);
 					if (Files.isDirectory(datatypemapsPath)) {
 						Set<String> datatypemaps = Stream.of(
 							new File(folder.toString() + "/datatypemaps").listFiles()).filter(
 								file -> (!file.isDirectory() && file.toString().endsWith("js"))).map(
 									File::getName).collect(Collectors.toSet());
 						for (String datatypemap : datatypemaps) {
-							logger.trace("Loading datatypemap  " + datatypemap);
+							logger.info("Loading datatypemap  " + datatypemap);
+
 							InputStream datatypetermStream = new FileInputStream(
 								folder.toString() + "/datatypemaps/" + datatypemap);
 							String mapsource = IOUtils.toString(datatypetermStream, StandardCharsets.UTF_8.name());
@@ -186,7 +190,7 @@ public class MdmiEngine {
 									Mdmi.INSTANCE().getResolver().getMaps().get(key).datatypemappings = mapsource;
 								}
 							}
-							logger.trace("Loaded datatypemap  " + datatypemap);
+							logger.info("Loaded datatypemap  " + datatypemap);
 						}
 					}
 
@@ -296,7 +300,7 @@ public class MdmiEngine {
 							Collectors.toSet());
 
 					for (String valuesFile : valuesFiles) {
-						logger.trace("Loading property  " + valuesFile);
+						logger.trace("Loading value files  " + valuesFile);
 
 						// Files.readString()
 
