@@ -1,4 +1,11 @@
-FROM openjdk:21-oracle
+FROM mcr.microsoft.com/openjdk/jdk:21-ubuntu
+
+# Install curl
+RUN apt-get update && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/*
+
+
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java", "-Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl", "-jar", "/app.jar"]

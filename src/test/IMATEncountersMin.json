@@ -1,0 +1,305 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+        "code": "SUBSETTED",
+        "display": "Resource encoded in summary mode"
+      }
+    ]
+  },
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:6d2214fb-f468-4ab0-be53-1b836d7713c4",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.4.1",
+            "value": "999999999"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "family": "Patient2",
+            "given": ["Test"]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3bb89aee-fdd0-4335-9d2e-02bd3f83b1ea",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.4.6",
+            "value": "1234567890"
+          }
+        ],
+        "name": [
+          {
+            "family": "Provider2-138",
+            "given": ["Test"],
+            "suffix": ["MD"]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+11111199990",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "test134mail@email.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": ["ABC 123 street - 126", "Suite 1"],
+            "city": "Salt Lake City",
+            "state": "UT",
+            "postalCode": "84101",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2fe82191-b743-4711-9d59-db0162066362",
+      "resource": {
+        "resourceType": "Location",
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "2.16.840.1.113883.19.5"
+          }
+        ],
+        "status": "active",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+1888999990",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location"
+      }
+    },
+    {
+      "fullUrl": "PractitionerRole/2.16.840.1.113883.4.6::1234567890",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "2.16.840.1.113883.4.6::1234567890",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.4.6",
+            "value": "1234567890"
+          }
+        ],
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "urn:oid:2.16.840.1.113883.6.101",
+                "code": "123456abcde",
+                "display": "Test Facility2"
+              }
+            ],
+            "text": "Test Facility2"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+199999912345",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea365ead-8ccd-4149-9d68-2048ccfef90e",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "2a620155-9d11-439e-92b3-5d9815ff4de8",
+            "value": "5505"
+          }
+        ],
+        "status": "in-progress",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d2214fb-f468-4ab0-be53-1b836d7713c4"
+        },
+        "period": {
+          "start": "2025-01-01T01:01:01-06:00"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5cd74266-970d-4657-9778-c3e761936dca",
+      "resource": {
+        "resourceType": "Condition",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.1.28",
+            "value": "EncAss5505.3"
+          }
+        ],
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved",
+              "display": "Resolved"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.6.90",
+              "code": "Z12.12",
+              "display": "Screening for malignant neoplasm of the rectum"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:6d2214fb-f468-4ab0-be53-1b836d7713c4"
+        },
+        "onsetDateTime": "2025-01-01T01:01:01-06:00",
+        "recordedDate": "2025-01-01T01:01:01-06:00",
+        "recorder": {
+          "reference": "urn:uuid:3bb89aee-fdd0-4335-9d2e-02bd3f83b1ea"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:713b22b2-2f2f-4023-997e-45b1e644c111",
+      "resource": {
+        "resourceType": "Organization",
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "E779E701-2444-472C-B86F-AAB4696C5119"
+          }
+        ],
+        "name": "Test Facility 1",
+        "address": [
+          {
+            "use": "work",
+            "line": ["ABC 123 street-147", "Suite 1"],
+            "city": "Salt Lake City",
+            "state": "UT",
+            "postalCode": "84101",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:713b22b2-2f2f-4023-997e-45b1e644c222",
+      "resource": {
+        "resourceType": "Organization",
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "E779E701-2444-472C-B86F-AAB4696C5119"
+          }
+        ],
+        "name": "Test Facility 1",
+        "address": [
+          {
+            "use": "work",
+            "line": ["ABC 123 street-147", "Suite 1"],
+            "city": "Salt Lake City",
+            "state": "UT",
+            "postalCode": "84101",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:713b22b2-2f2f-4023-997e-45b1e644c333",
+      "resource": {
+        "resourceType": "Organization",
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "E779E701-2444-472C-B86F-AAB4696C5119"
+          }
+        ],
+        "name": "Test Facility 1",
+        "address": [
+          {
+            "use": "work",
+            "line": ["ABC 123 street-147", "Suite 1"],
+            "city": "Salt Lake City",
+            "state": "UT",
+            "postalCode": "84101",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization"
+      }
+    }
+  ]
+}
