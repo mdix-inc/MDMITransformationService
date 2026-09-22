@@ -13,6 +13,7 @@ logging:
     org.mdmi: ${LOGGING_LEVEL_MDMI:INFO}
     org.springframework: ${LOGGING_LEVEL_SPRING:info}
     com.google: ${LOGGING_LEVEL_JSCOMP:OFF}
+    org.mdmi.core.engine.javascript.JavaScriptLogger: OFF	
 
 fhirterminology:
     userName: ${FHIR_TERMINOLOGY_NAME:user}

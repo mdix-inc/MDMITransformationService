@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <configuration>
-    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+
+    <appender name="stdout"
+              class="ch.qos.logback.core.ConsoleAppender">
+
         <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+
         <encoder>
-            <pattern>${mdmi.engine.version} %d{HH:mm:ss.SSS}  [%thread] %X{client} %X{transactionId} %-5level %logger{5} - %msg%n
-            </pattern>
+            <pattern>${mdmi.engine.version} %d{HH\:mm\:ss.SSS} [%thread] %X{client} %X{transactionId} %-5level %logger{5} - %msg%n</pattern>
         </encoder>
+
     </appender>
-  
-    <!-- the level of the root level is set to DEBUG by default. -->
+
+
+    <!-- ========================================================= -->
+    <!-- Dedicated JavaScript Debug Log                            -->
+    <!-- ========================================================= -->
+
+    <appender name="JAVASCRIPT_DEBUG_FILE"
+              class="ch.qos.logback.core.FileAppender">
+
+        <file>logs/javascript-debug.log</file>
+
+        <append>true</append>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level - %msg%n</pattern>
+        </encoder>
+
+    </appender>
+
+
+    <!--
+        Dedicated logger for JavaScript/mapping debugging.
+
+        additivity="false" prevents these messages from
+        propagating to the root logger/stdout.
+    -->
+
+    <logger name="JAVASCRIPT_DEBUG"
+            level="DEBUG"
+            additivity="false">
+
+        <appender-ref ref="JAVASCRIPT_DEBUG_FILE"/>
+
+    </logger>
+
+
+    <!-- ========================================================= -->
+    <!-- Normal Application Logging                                -->
+    <!-- ========================================================= -->
+
     <root level="INFO">
+
         <appender-ref ref="stdout" />
-   		 
+
     </root>
+
 </configuration>
+
