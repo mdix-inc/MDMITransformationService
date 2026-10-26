@@ -217,7 +217,7 @@
 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 	<artifactId>org.mdmi.processors.fhir</artifactId>
-	<version>4.2.1-SNAPSHOT</version>
+	<version>4.3.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
@@ -237,7 +237,7 @@
 <!----> 		<dependency>
 			<groupId>org.mdmi.processors</groupId>
 			<artifactId>org.mdmi.processors.edi</artifactId>
-			<version>4.2.2-SNAPSHOT</version>
+			<version>4.3.2-SNAPSHOT</version>
 		</dependency>
 
 
