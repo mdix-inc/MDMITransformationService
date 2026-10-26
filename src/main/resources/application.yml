@@ -13,7 +13,11 @@ logging:
     org.mdmi: ${LOGGING_LEVEL_MDMI:INFO}
     org.springframework: ${LOGGING_LEVEL_SPRING:info}
     com.google: ${LOGGING_LEVEL_JSCOMP:OFF}
-    org.mdmi.core.engine.javascript.JavaScriptLogger: OFF	
+    org.mdmi.core.engine.javascript.JavaScriptLogger: ${LOGGING_LEVEL_JAVASCRIPT:OFF}
+    org.mdmi.core.engine.MdmiUowLogUtil: ${MDMI_UOW_LOGGING_LEVEL:OFF}		
+    org.mdmi.core.engine.SemanticParser: ${MDMI_UOW_LOGGING_LEVEL:OFF}
+    org.mdmi.core.engine.parser.xml.DOMSAXSyntacticParser: ${MDMI_UOW_LOGGING_LEVEL:OFF}	
+    org.mdmi.core.engine.MdmiUow.walkTransferElements: ${MDMI_UOW_LOGGING_LEVEL:OFF}		
 
 fhirterminology:
     userName: ${FHIR_TERMINOLOGY_NAME:user}
